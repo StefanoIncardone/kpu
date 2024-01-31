@@ -1,0 +1,42 @@
+[workspace]
+members = ["api_test"]
+
+[package]
+name = "kpu"
+version = "0.1.0"
+edition = "2021"
+authors = ["Stefano Incardone"]
+categories = ["simulation", "parser-implementations"]
+keywords = ["cpu", "fictional", "education", "assembler"]
+description = "Exploring how cpus and assemblers work by creating fictional ones"
+readme = "README.md"
+repository = "https://github.com/StefanoIncardone/kpu"
+license = "MIT"
+
+[lints.clippy]
+needless_return = "allow"
+zero_prefixed_literal = "allow"
+large-stack-arrays = "forbid"
+too-many-arguments = "allow"
+from_over_into = "allow"
+
+[lints.rust]
+private_bounds = "forbid"
+private_interfaces = "forbid"
+
+[profile.dev]
+debug = "full"
+opt-level = 0
+# codegen-units = 1
+# incremental = false
+# lto = "fat"
+
+[profile.test]
+debug = "full"
+opt-level = 0
+# codegen-units = 1
+# incremental = false
+# lto = "fat"
+
+[features]
+franco = []

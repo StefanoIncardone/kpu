@@ -1,0 +1,32 @@
+[package]
+name = "api_tests"
+version = "0.1.0"
+edition = "2021"
+
+[lints.clippy]
+needless_return = "allow"
+zero_prefixed_literal = "allow"
+large-stack-arrays = "forbid"
+too-many-arguments = "allow"
+from_over_into = "allow"
+
+[lints.rust]
+private_bounds = "forbid"
+private_interfaces = "forbid"
+
+[profile.dev]
+debug = "full"
+opt-level = 0
+# codegen-units = 1
+# incremental = false
+# lto = "fat"
+
+[profile.test]
+debug = "full"
+opt-level = 0
+# codegen-units = 1
+# incremental = false
+# lto = "fat"
+
+[dependencies]
+kpu = { version = "0.1.0", path = ".." }
