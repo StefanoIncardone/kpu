@@ -14,19 +14,5 @@ from_over_into = "allow"
 private_bounds = "forbid"
 private_interfaces = "forbid"
 
-[profile.dev]
-debug = "full"
-opt-level = 0
-# codegen-units = 1
-# incremental = false
-# lto = "fat"
-
-[profile.test]
-debug = "full"
-opt-level = 0
-# codegen-units = 1
-# incremental = false
-# lto = "fat"
-
 [dependencies]
 kpu = { version = "0.1.0", path = ".." }
