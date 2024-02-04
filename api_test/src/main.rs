@@ -1,7 +1,6 @@
-use kpu::{Kpu, Memory, Op, Reg, Registers};
+use kpu::{Kpu, Op, Reg};
 
 fn main() {
-    // let kpu = Kpu::default();
     let ops = [
         Op::MoveRegImm { dst: Reg::R0, imm: 3 },
         Op::MoveRegReg { dst: Reg::R1, src: Reg::R0 },
@@ -12,7 +11,18 @@ fn main() {
         Op::Halt,
     ];
 
-    for op in ops {
-        println!("{:?}", op);
+    let mut kpu = Kpu::new();
+    if let Err(err) = kpu.load(&ops) {
+        panic!("Error: {}", err);
+    }
+
+    loop {
+        let executed_op = kpu.step();
+        println!("{}", executed_op);
+
+        if let Op::Halt = executed_op {
+            kpu.reset();
+            break;
+        };
     }
 }
